@@ -4,4 +4,4 @@ The fun and easy project “Guess the Number” is a short Java project that all
   The user is prompted to enter their given number in a displayed dialogue box. 
   The computer then tells if the entered number matches the guesses number or it is higher/lower than the generated number. 
   The game continues under the user guessing the number.
-In my code I have limited the number of tries that a user can make to 10.
+In my code I have limited the number of tries that a user can make to 10.If the user cannot guess the number in 10 tries then the user will not receive any score for that trail. Instead a message is displayed to the user indicating that the number of tries has exceeded the limit.
