@@ -10,22 +10,23 @@ public class TaskGuess
     public void menu(ArrayList<Integer> score) 
     {
         TaskGuess change = new TaskGuess();
-        Scanner input = new Scanner(System.in);
-        System.out.println("--------------------");
+        Scanner in = new Scanner(System.in);
+        System.out.println("--------------------------------------");
         System.out.println("Welcome to the number guessing game");
+        System.out.println("--------------------------------------");
         System.out.println("1 Play the Game");
         System.out.println("2 Score Board");
         System.out.println("3 Exit the game");
         System.out.println("--------------------");
         try {
             System.out.print("Enter your choice: ");
-            int option = input.nextInt();
-            switch (option) {
+            int userchoice = in.nextInt();
+            switch (userchoice) {
                 case 1:
                     System.out.print("\n"+"Enter your range:");
-                    int numberRange = input.nextInt();
-                    int randomNumber = change.randomNumber(numberRange);
-                    change.guessUserNumber(randomNumber);
+                    int numberRange = in.nextInt();
+                    int generateRandomNumber = change.generateRandomNumber(numberRange);
+                    change.guessUserNumber(generateRandomNumber);
                     break;
                 case 2:
                     change.displayresult();
@@ -42,32 +43,32 @@ public class TaskGuess
             menu(score);
         }
     }
-    public int randomNumber(int numberRange)
+    public int generateRandomNumber(int numberRange)
     {
         Random random = new Random();
-        int randomNumber = random.nextInt(numberRange) + 1;
-        return randomNumber;
+        int generateRandomNumber = random.nextInt(numberRange) + 1;
+        return generateRandomNumber;
     }
-    public void guessUserNumber(int randomNumber) 
+    public void guessUserNumber(int generateRandomNumber) 
     {
-        Scanner input = new Scanner(System.in);
+        Scanner in = new Scanner(System.in);
         int userGuess;
         int guess = 0;
         if(guess<=10)
         {
             do {
                 System.out.print("Enter the number you guessed: ");
-                userGuess = input.nextInt();
+                userGuess = in.nextInt();
                 guess++;
-                if (userGuess > randomNumber) 
+                if (userGuess > generateRandomNumber) 
                 {
-                    System.out.println("Lower");
+                    System.out.println("The number is Lower");
                 } 
-                else if (userGuess < randomNumber) 
+                else if (userGuess < generateRandomNumber) 
                 {
-                    System.out.println("Higher");
+                    System.out.println("The number is Higher");
                 }
-            } while (randomNumber != userGuess);
+            } while (generateRandomNumber != userGuess);
         }
         System.out.println(" ");
         if (guess == 1) 
@@ -90,10 +91,10 @@ public class TaskGuess
     }
     public void displayresult() 
     {
-        System.out.println("--------------------");
-        System.out.println("Score Board");
-        System.out.println("--------------------");
-        System.out.println("Your greatest score: " +"\n");
+        System.out.println("-----------------------------------");
+        System.out.println("RESULTS:");
+        System.out.println("-----------------------------------");
+        System.out.println("Your greatest score is: " +"\n");
         Collections.sort(score);
         for (Integer scores : score) {
             if(scores==11)
